@@ -1,0 +1,42 @@
+{
+  "id": 13,
+  "cause": "xcvbn",
+  "timeOfApp": "12:30",
+  "doctor": "Dr. House",
+  "dateOfApp": {
+    "year": 2022,
+    "month": "APRIL",
+    "monthValue": 4,
+    "dayOfMonth": 13,
+    "chronology": {
+      "id": "ISO",
+      "calendarType": "iso8601"
+    },
+    "dayOfWeek": "WEDNESDAY",
+    "leapYear": false,
+    "dayOfYear": 103,
+    "era": "CE"
+  },
+  "patient": {
+    "id": 12,
+    "name": "sdfgh",
+    "surname": "xdfgbn",
+    "secondName": "sdfgbn",
+    "gender": "male",
+    "cured": false,
+    "dob": {
+      "year": 2022,
+      "month": "MARCH",
+      "monthValue": 3,
+      "dayOfMonth": 30,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      },
+      "dayOfWeek": "WEDNESDAY",
+      "leapYear": false,
+      "dayOfYear": 89,
+      "era": "CE"
+    }
+  }
+}

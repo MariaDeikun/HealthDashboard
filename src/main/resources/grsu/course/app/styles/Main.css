@@ -1,0 +1,16 @@
+.btn{
+-fx-background-color: WHITE;
+-fx-border-radius: 5px;
+-fx-border-color: #303778;
+}
+.input{
+-fx-background-color: WHITE;
+-fx-border-radius: 5px;
+-fx-border-color: #303778;
+}
+.curedText{
+-fx-text-fill: WHITE;
+}
+
+.default-color0.chart-bar{-fx-bar-fill: #303778;}
+

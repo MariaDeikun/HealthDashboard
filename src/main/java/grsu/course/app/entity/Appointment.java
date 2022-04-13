@@ -2,18 +2,15 @@ package grsu.course.app.entity;
 
 import java.time.LocalDate;
 
-public class Appointment extends Entity {
+public class Appointment {
     private String cause;
     private String timeOfApp;
-    private String doctor;
     private LocalDate dateOfApp;
     private Patient patient;
 
-    public Appointment(Integer id, LocalDate dateOfApp, String timeOfApp, String cause, String doctor, Patient patient) {
-        super(id);
+    public Appointment(LocalDate dateOfApp, String timeOfApp, String cause, Patient patient) {
         this.dateOfApp = dateOfApp;
         this.timeOfApp = timeOfApp;
-        this.doctor = doctor;
         this.cause = cause;
         this.patient = patient;
     }
@@ -33,13 +30,6 @@ public class Appointment extends Entity {
         this.timeOfApp = timeOfApp;
     }
 
-    public String getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(String doctor) {
-        this.doctor = doctor;
-    }
 
     public LocalDate getDateOfApp() {
         return dateOfApp;
@@ -62,7 +52,6 @@ public class Appointment extends Entity {
         return "Appointment{" +
                 "cause='" + cause + '\'' +
                 ", timeOfApp='" + timeOfApp + '\'' +
-                ", doctor='" + doctor + '\'' +
                 ", dateOfApp=" + dateOfApp +
                 ", patient=" + patient +
                 '}';

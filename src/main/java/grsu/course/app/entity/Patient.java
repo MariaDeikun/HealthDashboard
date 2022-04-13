@@ -2,7 +2,7 @@ package grsu.course.app.entity;
 
 import java.time.LocalDate;
 
-public class Patient extends Entity {
+public class Patient  {
     private String name;
     private String surname;
     private String secondName;
@@ -10,8 +10,8 @@ public class Patient extends Entity {
     private String gender;
     private Boolean cured;
 
-    public Patient(Integer id, String name, String surname, String secondName, LocalDate DOB, String gender, Boolean cured) {
-        super(id);
+    public Patient( String name, String surname, String secondName, LocalDate DOB, String gender, Boolean cured) {
+
         this.name = name;
         this.surname = surname;
         this.secondName = secondName;

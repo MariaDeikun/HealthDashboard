@@ -1,0 +1,79 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Appointment{
+    private String cause;
+    private String timeOfApp;
+    private LocalDate dateOfApp;
+    private Patient patient;
+    public Appointment()
+    String getCause()
+    String getTimeOfApp()
+    LocalDate getDateOfApp()
+    Patient getPatient()
+    setCause()
+    setTimeOfApp()
+    setDateOfApp()
+    setPatient()
+    String toString()
+}
+
+class Entity{
+    private static AtomicLong id
+    public Entity()
+    AtomicLong getId()
+    setId()
+    static String createId ()
+}
+class AppointmentForDr{
+    private String doctor;
+    public AppointmentForDr()
+    String getDoctor()
+    setDoctor()
+
+}
+class Patient{
+    private String name;
+    private String surname;
+    private String secondName;
+    private LocalDate DOB;
+    private String gender;
+    private Boolean cured;
+    public Patient()
+    String getName()
+    String getSurname()
+    String getSecondName()
+    Boolean getCured()
+    LocalDate getDOB()
+    String getGender()
+    setName()
+    setSurname()
+    setSecondName()
+    setCured()
+    setGender()
+    setDOB()
+}
+
+class AppointmentService{
+    public void addToMapOfAppointments()
+    public void saveAppointments()
+}
+class AppointmentForDrService{
+     public void addToMapOfAppointments()
+     public void saveAppointments()
+}
+
+interface IAppointmentService{
+void addToMapOfAppointments();
+void saveAppointments()
+}
+Patient<|...Appointment:create
+IAppointmentService<|--AppointmentService
+IAppointmentService<|--AppointmentForDrService
+Appointment<|---AppointmentForDr
+Appointment<|..Entity
+AppointmentForDr<|..Entity
+
+
+
+@enduml

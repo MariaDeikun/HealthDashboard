@@ -1,42 +1,56 @@
 {
-  "id": 13,
-  "cause": "xcvbn",
-  "timeOfApp": "12:30",
-  "doctor": "Dr. House",
-  "dateOfApp": {
-    "year": 2022,
-    "month": "APRIL",
-    "monthValue": 4,
-    "dayOfMonth": 13,
-    "chronology": {
-      "id": "ISO",
-      "calendarType": "iso8601"
-    },
-    "dayOfWeek": "WEDNESDAY",
-    "leapYear": false,
-    "dayOfYear": 103,
-    "era": "CE"
-  },
-  "patient": {
-    "id": 12,
-    "name": "sdfgh",
-    "surname": "xdfgbn",
-    "secondName": "sdfgbn",
-    "gender": "male",
-    "cured": false,
-    "dob": {
+  "1": {
+    "cause": "xdfgbn",
+    "timeOfApp": "xcvbn",
+    "doctor": "select doctor",
+    "dateOfApp": {
       "year": 2022,
-      "month": "MARCH",
-      "monthValue": 3,
-      "dayOfMonth": 30,
+      "month": "APRIL",
+      "monthValue": 4,
+      "dayOfMonth": 14,
       "chronology": {
         "id": "ISO",
         "calendarType": "iso8601"
       },
-      "dayOfWeek": "WEDNESDAY",
+      "dayOfWeek": "THURSDAY",
       "leapYear": false,
-      "dayOfYear": 89,
+      "dayOfYear": 104,
       "era": "CE"
+    },
+    "patient": {
+      "name": "sdfgh",
+      "surname": "",
+      "secondName": "",
+      "gender": "select gender",
+      "cured": false,
+      "dob": null
+    }
+  },
+  "2": {
+    "cause": "sdfrtghj",
+    "timeOfApp": "xcvbn",
+    "doctor": "select doctor",
+    "dateOfApp": {
+      "year": 2022,
+      "month": "APRIL",
+      "monthValue": 4,
+      "dayOfMonth": 5,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      },
+      "dayOfWeek": "TUESDAY",
+      "leapYear": false,
+      "dayOfYear": 95,
+      "era": "CE"
+    },
+    "patient": {
+      "name": "sdfgh",
+      "surname": "",
+      "secondName": "",
+      "gender": "select gender",
+      "cured": false,
+      "dob": null
     }
   }
 }

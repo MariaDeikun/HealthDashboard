@@ -1,17 +1,23 @@
 package grsu.course.app.entity;
 
-public class Entity {
-    private Integer id;
+import java.util.concurrent.atomic.AtomicLong;
 
-    public Entity(Integer id) {
+public class Entity {
+    private static AtomicLong id=new AtomicLong(1);
+
+    public Entity(AtomicLong id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public AtomicLong getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(AtomicLong id) {
         this.id = id;
+    }
+
+    public static String createId (){
+        return String.valueOf(id.getAndIncrement());
     }
 }

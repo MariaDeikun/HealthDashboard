@@ -81,9 +81,10 @@ public class MainController implements Initializable {
 
     @FXML
     public void clickHandler(MouseEvent mouseEvent) throws IOException {
-        Patient patient = new Patient(12, name.getText(), surname.getText(), secondName.getText(), dob.getValue(), gender.getText(), false);
-        Appointment appointment = new Appointment(13, dateOfApp.getValue(), time.getText(), cause.getText(), doctor.getText(), patient);
-        this.appointmentService.saveAppointment(appointment);
-        System.out.println(appointment);
+        Patient patient = new Patient(name.getText(), surname.getText(), secondName.getText(), dob.getValue(), gender.getText(), false);
+        Appointment appointment = new Appointment(dateOfApp.getValue(), time.getText(), cause.getText(), patient);
+        this.appointmentService.addToMapOfAppointments(appointment);
+        this.appointmentService.saveAppointments();
+//        System.out.println(appointment);
     }
 }

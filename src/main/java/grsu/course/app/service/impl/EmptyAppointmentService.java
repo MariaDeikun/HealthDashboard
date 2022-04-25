@@ -10,32 +10,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.TreeMap;
 
-public class AppointmentService implements IAppointmentService {
-
-
+public class EmptyAppointmentService implements IAppointmentService {
 
     @Override
     public void addToMapOfAppointments(EmptyAppointment appointment, TreeMap appointments) {
-
         appointments.put(Entity.createId(),appointment);
         System.out.println(appointments);
     }
 
+    @Override
     public void saveAppointments(TreeMap appointments) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File("D:\\Java\\app1\\appointments.json");
         mapper.writeValue(file, appointments);
     }
-//    public void serializeMapOfString() throws JsonProcessingException {
-//        var mapper = new ObjectMapper();
-//        var personNames = new TreeMap<String, String>();
-//        personNames.put("name1", "Juan Garcia");
-//        personNames.put("name2", "Manuel Perez");
-//        var json = mapper.writeValueAsString(personNames);
-//        log.info("A simple map of <String, String>: {}", json);
-//        assertThat(json).isEqualTo(
-//                "{\"name1\":\"Juan Garcia\",\"name2\":\"Manuel Perez\"}"
-//        );
-//    }
-
 }

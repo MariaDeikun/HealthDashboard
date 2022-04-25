@@ -1,7 +1,10 @@
-module grsu.course.app1 {
+module grsu.course.app {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.datatype.jsr310;
+    requires jackson.annotations;
+    requires com.fasterxml.jackson.core;
 
 
     opens grsu.course.app to javafx.fxml;

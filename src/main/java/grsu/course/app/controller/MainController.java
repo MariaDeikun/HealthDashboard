@@ -1,9 +1,13 @@
 package grsu.course.app.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import grsu.course.app.entity.Appointment;
+import grsu.course.app.entity.EmptyAppointment;
 import grsu.course.app.entity.Patient;
 import grsu.course.app.service.impl.AppointmentService;
+
+import grsu.course.app.service.impl.EmptyAppointmentService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -16,7 +20,9 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.TreeMap;
 
 
 public class MainController implements Initializable {
@@ -46,9 +52,11 @@ public class MainController implements Initializable {
 
 
     private AppointmentService appointmentService;
+    private EmptyAppointmentService emptyAppointmentService;
 
     public MainController() {
         appointmentService = new AppointmentService();
+        emptyAppointmentService = new EmptyAppointmentService();
     }
 
     @Override
@@ -78,13 +86,19 @@ public class MainController implements Initializable {
         chart.getData().add(series);
     }
 
-
+    TreeMap appointments=new TreeMap<String, EmptyAppointment>();
     @FXML
     public void clickHandler(MouseEvent mouseEvent) throws IOException {
-        Patient patient = new Patient(name.getText(), surname.getText(), secondName.getText(), dob.getValue(), gender.getText(), false);
-        Appointment appointment = new Appointment(dateOfApp.getValue(), time.getText(), cause.getText(), patient);
-        this.appointmentService.addToMapOfAppointments(appointment);
-        this.appointmentService.saveAppointments();
-//        System.out.println(appointment);
+        if(Objects.equals(name.getText(), "") && Objects.equals(surname.getText(), "") && Objects.equals(secondName.getText(), "")){
+            EmptyAppointment emptyAppointment = new EmptyAppointment(dateOfApp.getValue(), time.getText(), cause.getText());
+            this.emptyAppointmentService.addToMapOfAppointments(emptyAppointment, appointments);
+            this.emptyAppointmentService.saveAppointments(appointments);
+        }
+        else {
+            Patient patient = new Patient(name.getText(), surname.getText(), secondName.getText(), dob.getValue(), gender.getText(), false);
+            Appointment appointment = new Appointment(dateOfApp.getValue(), time.getText(), cause.getText(), patient);
+            this.appointmentService.addToMapOfAppointments(appointment, appointments);
+            this.appointmentService.saveAppointments(appointments);
+        }
     }
 }

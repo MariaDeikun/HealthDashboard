@@ -1,8 +1,15 @@
 package grsu.course.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 
-public class Patient  {
+public class Patient {
     private String name;
     private String surname;
     private String secondName;
@@ -10,8 +17,9 @@ public class Patient  {
     private String gender;
     private Boolean cured;
 
-    public Patient( String name, String surname, String secondName, LocalDate DOB, String gender, Boolean cured) {
+    public Patient() {}
 
+    public Patient(String name, String surname, String secondName, LocalDate DOB, String gender, Boolean cured) {
         this.name = name;
         this.surname = surname;
         this.secondName = secondName;
@@ -23,18 +31,25 @@ public class Patient  {
     public String getName() {
         return this.name;
     }
+
     public String getSurname() {
         return this.surname;
     }
+
     public String getSecondName() {
         return this.secondName;
     }
+
     public Boolean getCured() {
         return this.cured;
     }
+
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     public LocalDate getDOB() {
         return this.DOB;
     }
+
     public String getGender() {
         return this.gender;
     }
@@ -59,6 +74,7 @@ public class Patient  {
         this.gender = gender;
     }
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     public void setDOB(LocalDate DOB) {
         this.DOB = DOB;
     }

@@ -1,11 +1,8 @@
 package grsu.course.app.service.impl;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import grsu.course.app.LaunchApp;
 import grsu.course.app.entity.Appointment;
-import grsu.course.app.entity.EmptyAppointment;
 import javafx.scene.control.DatePicker;
 
 import java.io.File;
@@ -23,7 +20,6 @@ public class CalendarService {
         File file = new File("D:\\Java\\app1\\appointments.json");
         TypeReference<TreeMap<String, Appointment>> typeRef = new TypeReference<>() {};
         Map map = mapper.readValue(file, typeRef);
-        System.out.println(map);
         return map;
     }
     public int getWeekNumber(DatePicker datePick){

@@ -12,7 +12,7 @@ public class LaunchApp extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LaunchApp.class.getResource("SideBar.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 930, 620);
-        stage.setTitle("main");
+        stage.setTitle("Health Dashboard");
         stage.setScene(scene);
         stage.show();
     }

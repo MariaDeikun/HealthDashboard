@@ -1,17 +1,14 @@
 package grsu.course.app.controller;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import grsu.course.app.entity.Appointment;
 import grsu.course.app.entity.EmptyAppointment;
 import grsu.course.app.entity.Patient;
 import grsu.course.app.service.impl.AppointmentService;
-
 import grsu.course.app.service.impl.EmptyAppointmentService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -76,14 +73,6 @@ public class MainController implements Initializable {
             gender.setText(female.getText());
         });
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.getData().add(new XYChart.Data<>("mon", 3));
-        series.getData().add(new XYChart.Data<>("tue", 5));
-        series.getData().add(new XYChart.Data<>("wed", 10));
-        series.getData().add(new XYChart.Data<>("thu", 3));
-        series.getData().add(new XYChart.Data<>("fri", 7));
-        series.getData().add(new XYChart.Data<>("sat", 2));
-        chart.getData().add(series);
     }
 
     TreeMap appointments=new TreeMap<String, EmptyAppointment>();

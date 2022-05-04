@@ -1,13 +1,9 @@
 package grsu.course.app.service;
 
-import grsu.course.app.entity.Appointment;
-import grsu.course.app.entity.EmptyAppointment;
-
-import java.io.IOException;
-import java.util.TreeMap;
+import java.time.LocalDate;
 
 public interface IAppointmentService {
-     void addToMapOfAppointments(EmptyAppointment appointment, TreeMap appointments);
-
-     void saveAppointments(TreeMap appointments) throws IOException;
+    void setCause(String cause);
+    void setTimeOfApp(String timeOfApp);
+    void setDateOfApp(LocalDate dateOfApp);
 }

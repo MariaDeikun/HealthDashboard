@@ -3,6 +3,8 @@ package grsu.course.app.service.impl;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import grsu.course.app.entity.Appointment;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.DatePicker;
 
 import java.io.File;
@@ -29,16 +31,16 @@ public class CalendarService {
         return weekNumber;
 
     }
-    public Map getListOfObjects(Map map, int weekNumber){
-        Set<Map.Entry<String, Appointment> > entries = map.entrySet();
-        Map<String, Appointment> appsForWeek=new HashMap<>();
+    public ObservableList<Appointment> getListOfObjects(Map<String, Appointment> map, int weekNumber){
+        Set<Map.Entry<String, Appointment>> entries = map.entrySet();
+
+        ObservableList<Appointment> appsForWeek = FXCollections.observableArrayList();
         for (Map.Entry<String, Appointment> entry : entries) {
 
             TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
             int appWeekNumber = entry.getValue().getDateOfApp().get(woy);
-            if(appWeekNumber==weekNumber){
-                appsForWeek.put(entry.getValue().getDateOfApp().getDayOfWeek().toString(), entry.getValue());
-
+            if(appWeekNumber == weekNumber){
+                appsForWeek.add( entry.getValue());
             }
         }
         return appsForWeek;

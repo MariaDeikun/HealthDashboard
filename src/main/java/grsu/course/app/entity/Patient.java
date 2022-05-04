@@ -6,31 +6,34 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import grsu.course.app.controller.CalendarController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Patient {
+    private static final Logger logger = LogManager.getLogger(CalendarController.class);
+
     private String name;
     private String surname;
     private String secondName;
     private LocalDate DOB;
     private String gender;
-    private Boolean cured;
+
 
     public Patient() {}
 
-    public Patient(String name, String surname, String secondName, LocalDate DOB, String gender, Boolean cured) {
-        this.name = name;
-        this.surname = surname;
-        this.secondName = secondName;
-        this.DOB = DOB;
-        this.gender = gender;
-        this.cured = cured;
+    public Patient(String name, String surname, String secondName, LocalDate DOB, String gender) {
+        setName(name);
+        setSurname(surname);
+        setSecondName(secondName);
+        setDOB(DOB);
+        setGender(gender);
     }
 
-    public String getName() {
-        return this.name;
-    }
+    public String getName() { return this.name; }
 
     public String getSurname() {
         return this.surname;
@@ -40,12 +43,9 @@ public class Patient {
         return this.secondName;
     }
 
-    public Boolean getCured() {
-        return this.cured;
-    }
-
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+
     public LocalDate getDOB() {
         return this.DOB;
     }
@@ -55,20 +55,42 @@ public class Patient {
     }
 
     public void setName(String name) {
-        this.name = name;
+        try {
+            if (name.trim().equals("") || name.trim().matches("[a-zA-Z]*")){
+                this.name = name;
+            }
+            else{throw new Exception("incorrect name");}
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("incorrect name entered");
+        }
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        try {
+            if (surname.trim().equals("") || surname.trim().matches("[a-zA-Z]*")){
+                this.surname = surname;
+            }
+            else{throw new Exception("incorrect surname");}
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("incorrect surname entered");
+        }
     }
 
     public void setSecondName(String secondName) {
-        this.secondName = secondName;
+        try {
+            if (secondName.trim().equals("") || secondName.trim().matches("[a-zA-Z]*")){
+                this.secondName = secondName;
+            }
+            else{throw new Exception("incorrect second Name");}
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("incorrect second Name entered");
+        }
+
     }
 
-    public void setCured(Boolean cured) {
-        this.cured = cured;
-    }
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -76,7 +98,23 @@ public class Patient {
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     public void setDOB(LocalDate DOB) {
-        this.DOB = DOB;
+        try {
+            LocalDate now= LocalDate.now();
+            long age = ChronoUnit.YEARS.between(DOB, now);
+
+            if (!(age ==0)){
+                this.DOB = DOB;
+            }
+            else{
+                throw new Exception("incorrect date of birth");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("incorrect date of birth entered");
+        }
     }
+
+
 }
 

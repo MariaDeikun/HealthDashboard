@@ -50,14 +50,14 @@ public class CalendarController implements Initializable {
         appsForWeek = this.calendarService.getListOfObjects(map, weekNumber);
         System.out.println(appsForWeek);
 
-        for( Appointment appointment : appsForWeek) {
+       for( Appointment appointment : appsForWeek) {
             DayOfWeek dow = appointment.getDateOfApp().getDayOfWeek();
             switch (dow) {
-                case MONDAY -> mon.setCellValueFactory(new PropertyValueFactory<Application, String>("appointmentValue"));
-                case TUESDAY -> tue.setCellValueFactory(new PropertyValueFactory<Application, String>("appointmentValue"));
-                case WEDNESDAY -> wed.setCellValueFactory(new PropertyValueFactory<Application, String>("appointmentValue"));
-                case THURSDAY -> thu.setCellValueFactory(new PropertyValueFactory<Application, String>("appointmentValue"));
-                case FRIDAY -> fri.setCellValueFactory(new PropertyValueFactory<Application, String>("appointmentValue"));
+                case MONDAY -> mon.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentValue"));
+                case TUESDAY -> tue.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentValue"));
+                case WEDNESDAY -> wed.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentValue"));
+                case THURSDAY -> thu.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentValue"));
+                case FRIDAY -> fri.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentValue"));
                 default -> {
                 }
             }

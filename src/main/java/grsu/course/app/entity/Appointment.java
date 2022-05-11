@@ -1,4 +1,5 @@
 package grsu.course.app.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -21,6 +22,7 @@ public class Appointment extends EmptyAppointment implements IAppointmentService
     private String timeOfApp;
     private LocalDate dateOfApp;
     private Patient patient;
+    @JsonIgnore
     public String appointmentValue;
 
     public Appointment () {}
@@ -103,7 +105,7 @@ public class Appointment extends EmptyAppointment implements IAppointmentService
     }
 
     public String getAppointmentValue() {
-        return this.patient.getName()+" "+this.patient.getSurname()+"  "+getCause()+"\n"+getTimeOfApp();
+        return this.patient.getName()+"/"+this.patient.getSurname()+" /"+getCause()+"\n"+getTimeOfApp();
     }
 
     @Override

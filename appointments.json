@@ -1,41 +1,14 @@
 {
   "1": {
     "cause": "pain",
-    "timeOfApp": "12:00",
+    "timeOfApp": "14:00",
     "dateOfApp": "26-05-2022",
     "patient": {
       "name": "Ann",
-      "surname": "Smith",
-      "secondName": "Nataly",
+      "surname": "Green",
+      "secondName": "Natali",
       "gender": "female",
-      "dob": "25-04-2016"
-    },
-    "appointmentValue": "Ann Smith  pain\n12:00"
-  },
-  "2": {
-    "cause": "pain",
-    "timeOfApp": "17:30",
-    "dateOfApp": "24-05-2022",
-    "patient": {
-      "name": "Peter",
-      "surname": "Donton",
-      "secondName": "Edmund",
-      "gender": "male",
-      "dob": "30-03-2018"
-    },
-    "appointmentValue": "Peter Donton  pain\n17:30"
-  },
-  "3": {
-    "cause": "pain",
-    "timeOfApp": "21:00",
-    "dateOfApp": "28-05-2022",
-    "patient": {
-      "name": "Nate",
-      "surname": "Johnson",
-      "secondName": "Edward",
-      "gender": "male",
-      "dob": "27-02-2018"
-    },
-    "appointmentValue": "Nate Johnson  pain\n21:00"
+      "dob": "14-05-2018"
+    }
   }
 }

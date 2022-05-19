@@ -13,7 +13,7 @@ import java.util.TreeMap;
 public class EmptyAppointmentService  {
 
 
-    public void addToMapOfAppointments(EmptyAppointment appointment, TreeMap appointments) {
+    public void addToMapOfAppointments(Appointment appointment, TreeMap appointments) {
         appointments.put(Entity.createId(),appointment);
         System.out.println(appointments);
     }

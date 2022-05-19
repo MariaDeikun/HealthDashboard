@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  stylesheets="@styles/Calendar.css" layoutX="78.0" layoutY="20.0" prefHeight="594.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grsu.course.app.controller.CalendarController">
+<AnchorPane layoutX="78.0" layoutY="20.0" prefHeight="594.0" prefWidth="850.0" stylesheets="@styles/Calendar.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grsu.course.app.controller.CalendarController">
    <children>
-      <DatePicker onAction="#getData" styleClass="datePick" fx:id="datePick" layoutX="316.0" layoutY="137.0" />
-      <Label styleClass="lPick" layoutX="306.0" layoutY="54.0" text="Pick the date" >
+      <DatePicker fx:id="datePick" layoutX="316.0" layoutY="137.0" onAction="#getData" styleClass="datePick" />
+      <Label layoutX="306.0" layoutY="54.0" styleClass="lPick" text="Pick the date">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="129.0" layoutY="228.0" prefHeight="200.0" prefWidth="550.0">
+      <TableView fx:id="table" layoutX="184.0" layoutY="226.0" prefHeight="200.0" prefWidth="440.0">
         <columns>
-          <TableColumn fx:id="mon" prefWidth="110.0" text="mon" />
-          <TableColumn fx:id="tue" prefWidth="110.0" text="tue" />
-          <TableColumn fx:id="wed" prefWidth="110.0" text="wed" />
-          <TableColumn fx:id="thu" prefWidth="110.0" text="thu" />
-          <TableColumn fx:id="fri" prefWidth="110.0" text="fri" />
+          <TableColumn fx:id="name" prefWidth="110.0" text="Name" />
+          <TableColumn fx:id="surname" prefWidth="110.0" text="Surname" />
+          <TableColumn fx:id="cause" prefWidth="110.0" text="Cause" />
+          <TableColumn fx:id="time" prefWidth="110.0" text="Time" />
+
 
         </columns>
       </TableView>

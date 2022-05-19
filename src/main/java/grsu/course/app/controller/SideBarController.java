@@ -21,7 +21,7 @@ public class SideBarController extends Application {
         launch(args);
     }
 
-    public void switchToMain(ActionEvent event) throws IOException {
+   public void switchToMain(ActionEvent event) throws IOException {
         Parent root= load(LaunchApp.class.getResource("Main.fxml"));
         mainPane.setCenter(root);
     }

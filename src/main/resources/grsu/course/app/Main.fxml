@@ -11,13 +11,12 @@
 
 <AnchorPane layoutX="78.0" layoutY="20.0" prefHeight="594.0" prefWidth="850.0" style="-fx-background-color: white;" stylesheets="@styles/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grsu.course.app.controller.MainController">
    <children>
-      <TextField editable="false" layoutX="34.0" layoutY="36.0" style="-fx-background-color: #fcfcfd;" text="Good evening!">
+      <TextField editable="false" layoutX="34.0" layoutY="36.0" style="-fx-background-color: white;" text="Good evening!">
          <font>
             <Font name="SansSerif Bold" size="28.0" />
          </font>
       </TextField>
-      <TextField fx:id="localDate" editable="false" layoutX="49.0" layoutY="99.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #fcfcfd;" text="date" />
-      <TextField fx:id="localTime" editable="false" layoutX="133.0" layoutY="99.0" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #fcfcfd;" text="time" />
+      <TextField fx:id="localDate" editable="false" layoutX="49.0" layoutY="99.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: white;" text="date" />
       <AnchorPane layoutX="-24.0" layoutY="189.0" prefHeight="200.0" prefWidth="712.0">
          <children>
             <Text layoutX="75.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name">

@@ -1,38 +1,36 @@
 package grsu.course.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import grsu.course.app.controller.CalendarController;
+import grsu.course.app.service.IAppointmentService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
-import java.util.Date;
 
-import static java.util.Calendar.HOUR;
-import static org.apache.logging.log4j.core.util.datetime.FixedDateFormat.FixedTimeZoneFormat.HH;
-
-public class EmptyAppointment {
+public class EmptyAppointment  extends Appointment implements IAppointmentService {
     private static final Logger logger = LogManager.getLogger(CalendarController.class);
+
 
     private String cause;
     private String timeOfApp;
     private LocalDate dateOfApp;
+    @JsonIgnore
+    private String patientName;
+    @JsonIgnore
+    private String patientSurname;
 
-    public EmptyAppointment () {}
 
     public EmptyAppointment(LocalDate dateOfApp, String timeOfApp, String cause) {
-
+        super(dateOfApp, timeOfApp, cause);
         setDateOfApp(dateOfApp);
         setTimeOfApp(timeOfApp);
         setCause(cause);
@@ -78,6 +76,7 @@ public class EmptyAppointment {
         }
     }
 
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     public LocalDate getDateOfApp() {
@@ -101,9 +100,7 @@ public class EmptyAppointment {
         }
 
     }
-    public String getAppointmentValue() {
-        return getCause()+"\n"+getTimeOfApp();
-    }
+
 
     @Override
     public String toString() {

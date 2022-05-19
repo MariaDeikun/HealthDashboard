@@ -15,7 +15,7 @@ public class AppointmentService  {
 
 
 
-    public void addToMapOfAppointments(EmptyAppointment appointment, TreeMap appointments) {
+    public void addToMapOfAppointments(Appointment appointment, TreeMap appointments) {
 
         appointments.put(Entity.createId(),appointment);
         System.out.println(appointments);

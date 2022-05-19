@@ -15,7 +15,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Appointment extends EmptyAppointment implements IAppointmentService {
+public class Appointment implements IAppointmentService {
     private static final Logger logger = LogManager.getLogger(CalendarController.class);
 
     private String cause;
@@ -23,17 +23,25 @@ public class Appointment extends EmptyAppointment implements IAppointmentService
     private LocalDate dateOfApp;
     private Patient patient;
     @JsonIgnore
-    public String appointmentValue;
+    private String patientName;
+    @JsonIgnore
+    private String patientSurname;
 
-    public Appointment () {}
+
 
     public Appointment(LocalDate dateOfApp, String timeOfApp, String cause, Patient patient) {
-        super(dateOfApp, timeOfApp, cause);
         this.dateOfApp = dateOfApp;
         this.timeOfApp = timeOfApp;
         this.cause = cause;
         this.patient = patient;
     }
+
+    public Appointment() {
+    }
+
+    public Appointment(LocalDate dateOfApp, String timeOfApp, String cause) {
+    }
+
     public String getCause() {
         return cause;
     }
@@ -97,16 +105,29 @@ public class Appointment extends EmptyAppointment implements IAppointmentService
     }
 
     public Patient getPatient() {
-        return patient;
+        return this.patient;
+    }
+
+
+    public String getPatientName() {
+
+        if(this.getPatient()==null){
+            return "-";
+        }
+        return this.patient.getName();
+    }
+
+    public String getPatientSurname() {
+        if(this.getPatient()==null){
+            return "-";
+        }
+        return this.patient.getSurname();
     }
 
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
 
-    public String getAppointmentValue() {
-        return this.patient.getName()+"/"+this.patient.getSurname()+" /"+getCause()+"\n"+getTimeOfApp();
-    }
 
     @Override
     public String toString() {

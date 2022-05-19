@@ -20,9 +20,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.Objects;
-import java.util.ResourceBundle;
-import java.util.TreeMap;
+import java.time.LocalTime;
+import java.util.*;
 
 
 public class MainController implements Initializable {
@@ -37,7 +36,6 @@ public class MainController implements Initializable {
     public DatePicker dateOfApp;
     public TextField cause;
     public TextField localDate;
-    public TextField localTime;
 
     @FXML
     MenuItem house = new MenuItem("Dr.House");
@@ -84,13 +82,17 @@ public class MainController implements Initializable {
             gender.setText(female.getText());
         });
 
+        localDate.setText(LocalDate.now().toString());
+
+
     }
+
 
     @FXML
     public void clickHandler(MouseEvent mouseEvent) throws IOException {
         logger.info("Add appointment handler");
         if(Objects.equals(name.getText(), "") && Objects.equals(surname.getText(), "") && Objects.equals(secondName.getText(), "")){
-            EmptyAppointment emptyAppointment = new EmptyAppointment(dateOfApp.getValue(), time.getText(), cause.getText());
+            Appointment emptyAppointment = new EmptyAppointment(dateOfApp.getValue(), time.getText(), cause.getText());
             logger.info("Create an empty appointment: {}", emptyAppointment);
             this.emptyAppointmentService.addToMapOfAppointments(emptyAppointment, appointments);
             this.emptyAppointmentService.saveAppointments(appointments);

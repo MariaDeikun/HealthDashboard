@@ -1,14 +1,1 @@
-{
-  "1": {
-    "cause": "pain",
-    "timeOfApp": "14:00",
-    "dateOfApp": "26-05-2022",
-    "patient": {
-      "name": "Ann",
-      "surname": "Green",
-      "secondName": "Natali",
-      "gender": "female",
-      "dob": "14-05-2018"
-    }
-  }
-}
+{"1":{"cause":"pain","timeOfApp":"12:00","dateOfApp":"26-05-2022","patient":{"name":"Ann","surname":"Galagher","secondName":"Maria","gender":"female","dob":"07-05-2020"}}}
